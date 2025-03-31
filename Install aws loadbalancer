@@ -1,0 +1,11 @@
+Download the IAM policy JSON file:
+curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
+
+Create the IAM policy:
+aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam_policy.json
+
+Associate the IAM OIDC provider with your cluster:
+eksctl utils associate-iam-oidc-provider --region=<region> --cluster=<cluster name> --approve
+
+Create the IAM service account for the AWS Load Balancer Controller:
+eksctl create iamserviceaccount --cluster=<cluster name> --namespace=kube-system --name=aws-load-balancer-controller --role-name AmazonEKSLoadBalancerControllerRole --attach-policy-arn=arn:aws:iam::<aws id >:policy/AWSLoadBalancerControllerIAMPolicy --approve --region=<region>
