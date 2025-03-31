@@ -1,0 +1,8 @@
+Create an EKS cluster:
+eksctl create cluster --name <cluster_name> --region <region_name> --node-type t2.medium --nodes-min 2 --nodes-max 2
+
+Update the kubeconfig:
+aws eks update-kubeconfig --region <region_name> --name <cluster_name>
+
+Check the nodes:
+kubectl get nodes
