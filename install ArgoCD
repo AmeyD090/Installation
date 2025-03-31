@@ -12,3 +12,9 @@ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 
 Forward ports to access Argo CD server:
 kubectl port-forward -n argocd service/argocd-server 8443:443 &
+
+
+Argo CD Initial Admin Password
+Retrieve Argo CD admin password:
+kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
+
