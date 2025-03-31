@@ -1,0 +1,14 @@
+# Download the AWS CLI installation file
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+
+# Install unzip if it's not already installed
+sudo yum install unzip -y
+
+# Unzip the downloaded file
+unzip awscliv2.zip
+
+# Run the install script
+sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin --update
+
+# Configure the AWS CLI
+aws configure
