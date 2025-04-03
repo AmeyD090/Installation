@@ -1,11 +1,11 @@
-Download the Helm installation script:
+#Download the Helm installation script:
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 
-Make the script executable:
+#Make the script executable:
 chmod 700 get_helm.sh
 
-Run the script to install Helm:
+#Run the script to install Helm:
 ./get_helm.sh
 
-After running these commands, Helm should be installed on your AWS Linux instance. You can verify the installation by checking the Helm version:
+#After running these commands, Helm should be installed on your AWS Linux instance. You can verify the installation by checking the Helm version:
 helm version
