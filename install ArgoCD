@@ -7,6 +7,10 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 Check services in Argo CD namespace:
 kubectl get svc -n argocd
 
+ Use a LoadBalancer (Recommended for AWS)
+Change the argocd-server service type to LoadBalancer so it gets a public IP:
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+
 
 
 Argo CD Initial Admin Password
